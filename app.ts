@@ -9,8 +9,8 @@ App.start({
     print(request);
     res("ok");
   },
-  // main: () => App.get_monitors.map(Bar),
-  main() {
-    Bar(0);
+  main: () => {
+    // Bar(0);
+    App.get_monitors().map(Bar);
   },
 });

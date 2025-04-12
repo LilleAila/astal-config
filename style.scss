@@ -1,0 +1,12 @@
+@use "sass:color";
+
+$bg: #282828;
+$fg: #ebdbb2;
+
+window.Bar {
+  background-color: $bg;
+  color: $fg;
+
+  font-size: 12pt;
+  padding: 2px;
+}
