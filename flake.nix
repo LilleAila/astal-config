@@ -27,8 +27,8 @@
       devShells = forEachSystem (pkgs: {
         default = pkgs.mkShell {
           packages = with pkgs; [
-            inputs.astal.packages.${pkgs.system}.default
-            inputs.astal.packages.${pkgs.system}.gjs
+            # inputs.astal.packages.${pkgs.system}.default
+            inputs.ags.packages.${system}.default
 
             nixd
             nixfmt-rfc-style

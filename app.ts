@@ -4,7 +4,7 @@ import Bar from "./widget/Bar";
 
 App.start({
   css: style,
-  instanceName: "bar",
+  instanceName: "astal", // the default instance name
   requestHandler(request, res) {
     print(request);
     res("ok");
