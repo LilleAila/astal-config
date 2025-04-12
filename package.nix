@@ -12,6 +12,8 @@ let
     extraPackages = with inputs.ags.packages.${system}; [
       battery
       tray
+      network
+      wireplumber
     ];
   };
 
