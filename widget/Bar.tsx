@@ -1,26 +1,8 @@
-import { Astal, Gtk, Gdk } from "astal/gtk3";
-import { Variable, GLib, bind } from "astal";
-import Battery from "gi://AstalBattery";
+import { Astal, Gtk } from "astal/gtk3";
 
-function Time({ format = "%H:%M" }) {
-  const time = Variable<string>("").poll(1000, () => GLib.DateTime.new_now_local().format(format)!)
+import Time from "./Time";
+import BatteryPercentage from "./BatteryPercentage";
 
-  return <label
-    className="Time"
-    onDestroy={() => time.drop()}
-    label={time()}
-  />
-}
-
-function BatteryPercentage() {
-  const bat = Battery.get_default();
-
-  return <box className="battery"
-    visible={bind(bat, "isPresent")} >
-    <icon icon={bind(bat, "batteryIconName")} />
-    <label label={bind(bat, "percentage").as(p => `${Math.floor(p * 100)}%`)} />
-  </box>
-}
 
 export default function Bar(monitor = 0) {
   const {TOP, LEFT, RIGHT} = Astal.WindowAnchor;
