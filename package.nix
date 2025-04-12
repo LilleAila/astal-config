@@ -4,6 +4,7 @@
   writeShellApplication,
   wrapGAppsHook,
   gobject-introspection,
+  sass,
   inputs,
 }:
 let
@@ -15,10 +16,12 @@ let
       inputs.ags.packages.${system}.default
       wrapGAppsHook
       gobject-introspection
+      sass
     ];
 
     installPhase = ''
       runHook preInstall
+      sass ./style.scss ./style.css
       ags bundle app.ts $out
       runHook postInstall
     '';
