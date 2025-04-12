@@ -37,7 +37,6 @@
             ]
             ++ (with inputs.astal.packages.${pkgs.system}; [
               default
-              battery
             ]);
         };
       });

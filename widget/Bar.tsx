@@ -2,6 +2,7 @@ import { Astal, Gtk } from "astal/gtk3";
 
 import Time from "./Time";
 import BatteryPercentage from "./BatteryPercentage";
+import SysTray from "./SysTray";
 
 
 export default function Bar(monitor = 0) {
@@ -22,6 +23,7 @@ export default function Bar(monitor = 0) {
       </box>
       <box hexpand halign={Gtk.Align.END} className="bar-box">
         <BatteryPercentage />
+        <SysTray />
       </box>
     </centerbox>
   </window>

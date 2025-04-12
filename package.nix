@@ -11,6 +11,7 @@ let
   ags = inputs.ags.packages.${system}.default.override {
     extraPackages = with inputs.ags.packages.${system}; [
       battery
+      tray
     ];
   };
 
