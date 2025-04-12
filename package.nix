@@ -8,12 +8,18 @@
   inputs,
 }:
 let
+  ags = inputs.ags.packages.${system}.default.override {
+    extraPackages = with inputs.ags.packages.${system}; [
+      battery
+    ];
+  };
+
   src = stdenvNoCC.mkDerivation {
     name = "astal-config.js";
     src = ./.;
 
     nativeBuildInputs = [
-      inputs.ags.packages.${system}.default
+      ags
       wrapGAppsHook
       gobject-introspection
       sass
@@ -31,9 +37,10 @@ writeShellApplication {
   name = "astal-config";
 
   runtimeInputs = with inputs.astal.packages.${system}; [
-    inputs.ags.packages.${system}.default
+    ags
     astal3
     io
+    battery
   ];
 
   text = ''

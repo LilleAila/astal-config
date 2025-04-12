@@ -1,12 +1,18 @@
-@use "sass:color";
-
 $bg: #282828;
 $fg: #ebdbb2;
+$font: "JetBrainsMono Nerd Font";
+$font-size: 10pt;
 
-window.Bar {
-  background-color: $bg;
+* {
   color: $fg;
+  font-family: $font;
+  font-size: $font-size;
+}
 
-  font-size: 12pt;
-  padding: 2px;
+window.bar {
+  .bar-wrapper {
+    background-color: $bg;
+
+    padding: 6px;
+  }
 }
