@@ -4,6 +4,7 @@ import Time from "./Time";
 import BatteryPercentage from "./BatteryPercentage";
 import SysTray from "./SysTray";
 import Wifi from "./Wifi";
+import Audio from "./Audio";
 
 
 export default function Bar(monitor = 0) {
@@ -23,6 +24,7 @@ export default function Bar(monitor = 0) {
         Center
       </box>
       <box hexpand halign={Gtk.Align.END} className="bar-box">
+        <Audio />
         <Wifi />
         <BatteryPercentage />
         <SysTray />
