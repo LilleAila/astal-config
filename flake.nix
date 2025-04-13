@@ -33,6 +33,8 @@
             nixd
             nixfmt-rfc-style
             statix
+
+            # typescript-language-server
           ];
         };
       });

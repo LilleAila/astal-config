@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@girs/*": ["@girs/*"]
+    },
+    "typeRoots": ["./@girs", "./node_modules/@types"],
+    "allowJs": false,
+    "checkJs": false,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noEmit": true, // We don't want tsc to output anything (GJS will run .js)
+    "jsx": "react", // only if you're using JSX/TSX (see note below)
+    "resolveJsonModule": true
+  },
+  "include": ["./*.ts", "./widget/**/*.ts", "./@girs/**/*"]
+}
