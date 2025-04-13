@@ -26,18 +26,14 @@
 
       devShells = forEachSystem (pkgs: {
         default = pkgs.mkShell {
-          packages =
-            with pkgs;
-            [
-              inputs.ags.packages.${system}.default
+          packages = with pkgs; [
+            # agsFull includes all astal libs
+            inputs.ags.packages.${system}.agsFull
 
-              nixd
-              nixfmt-rfc-style
-              statix
-            ]
-            ++ (with inputs.astal.packages.${pkgs.system}; [
-              default
-            ]);
+            nixd
+            nixfmt-rfc-style
+            statix
+          ];
         };
       });
     };

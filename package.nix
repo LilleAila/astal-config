@@ -2,51 +2,18 @@
   system,
   stdenvNoCC,
   writeShellApplication,
-  wrapGAppsHook,
-  gobject-introspection,
   sass,
   inputs,
 }:
-let
-  ags = inputs.ags.packages.${system}.default.override {
-    extraPackages = with inputs.ags.packages.${system}; [
-      battery
-      tray
-      network
-      wireplumber
-    ];
-  };
-
-  src = stdenvNoCC.mkDerivation {
-    name = "astal-config.js";
-    src = ./.;
-
-    nativeBuildInputs = [
-      ags
-      wrapGAppsHook
-      gobject-introspection
-      sass
-    ];
-
-    installPhase = ''
-      runHook preInstall
-      sass ./style.scss ./style.css
-      ags bundle app.ts $out
-      runHook postInstall
-    '';
-  };
-in
 writeShellApplication {
   name = "astal-config";
 
-  runtimeInputs = with inputs.astal.packages.${system}; [
-    ags
-    astal3
-    io
-    battery
+  runtimeInputs = [
+    inputs.ags.packages.${system}.agsFull
   ];
 
+  # ags run does not require bundling it first
   text = ''
-    ags run ${src}
+    ags run ${./.}/app.ts
   '';
 }

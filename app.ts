@@ -1,5 +1,5 @@
 import { App } from "astal/gtk3";
-import style from "./style.css"; // generated at build time
+import style from "./style.scss"; // AGS handles this at runtime, see https://aylur.github.io/ags/guide/bundling.html
 import Bar from "./widget/Bar";
 
 App.start({
